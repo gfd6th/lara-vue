@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "mobile": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=./webpack.mobile.config.js",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
@@ -11,7 +12,7 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^3.2.3",
     "jquery": "^3.1.1",
-    "laravel-mix": "^0.8.8",
+    "laravel-mix": "^0.11.0",
     "vue": "^2.1.10",
     "vue-router": "^2.3.0"
   },
