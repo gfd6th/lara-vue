@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermissionGroupsTable extends Migration
+class AddControllerToDataTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreatePermissionGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permission_groups', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
+        Schema::table('data_types', function (Blueprint $table) {
+            $table->string('controller')->nullable()->after('model_name');
         });
     }
 
@@ -26,6 +25,8 @@ class CreatePermissionGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission_groups');
+        Schema::table('data_types', function (Blueprint $table) {
+            $table->dropColumn('controller');
+        });
     }
 }
